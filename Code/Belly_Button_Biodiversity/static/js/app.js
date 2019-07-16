@@ -40,7 +40,7 @@ function buildCharts(sample) {
       }
     
     };
-    var data=[trace]
+    var trace =[trace]
     var layout={
       title:'OTU ID',
       showlegend: false,
@@ -48,11 +48,11 @@ function buildCharts(sample) {
       width:1500,
     }
 
-    Plotly.newPlot('bubble', trace1, layout);
+    Plotly.newPlot('bubble', trace, layout);
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
-    var data = [{
+    var data2 = [{
       values: data.sample_values.slice(0, 10),
       labels: data.otu_ids.slice(0, 10),
       hovertext: data.otu_labels.slice(0, 10),
@@ -61,7 +61,7 @@ function buildCharts(sample) {
     var layout = {
       showlegend: true,
     };
-    Plotly.newPlot('pie', data, layout);
+    Plotly.newPlot('pie', data2, layout);
 
   }
 )}
@@ -93,6 +93,6 @@ function optionChanged(newSample) {
   buildCharts(newSample);
   buildMetadata(newSample);
 }
-}
+
 // Initialize the dashboard
 init();
